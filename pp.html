@@ -19,10 +19,25 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- JavaScript to replace text based on 'id' query parameter using Template Literals -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = urlParams.get('id');
+
+            if (id) {
+                var uniqueCodeElement = document.getElementById('unique-code');
+                if (uniqueCodeElement) {
+                    uniqueCodeElement.textContent = `Vaš jedinstveni kod je ${id}`;
+                }
+            }
+        });
+    </script>
 </head>
 <body>
     <h1>Postanite član OTP banke</h1>
     <img src="https://i0.wp.com/pcpress.rs/wp-content/uploads/2022/09/otp1.png" alt="Description of Image">
-    <p>Vaš jedinstveni kod je 922061</p>
+    <p id="unique-code">Vaš jedinstveni kod je </p>
 </body>
 </html>
